@@ -28,3 +28,11 @@ init:
 
 install:
 	$(DOCKER_COMPOSE) run --rm node pnpm install
+
+deploy:
+	gcloud run deploy roberto-website \
+		--source . \
+		--dockerfile Dockerfile.prod \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--port 8080

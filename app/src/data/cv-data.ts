@@ -1,4 +1,17 @@
-export const cvData = {
+interface Project {
+    title: string;
+    description: string;
+    link: string;
+    image: string;
+}
+
+export const cvData: {
+    personalInfo: any;
+    experience: any[];
+    education: any[];
+    skills: any[];
+    projects: Project[];
+} = {
     personalInfo: {
         name: "Roberto Martínez Querol",
         title: "Director of Engineering | Senior software architect",

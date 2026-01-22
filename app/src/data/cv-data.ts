@@ -1,4 +1,4 @@
-interface PersonalInfo {
+export interface PersonalInfo {
     name: string;
     title: string;
     email: string;
@@ -8,7 +8,7 @@ interface PersonalInfo {
     bio: string;
 }
 
-interface Experience {
+export interface Experience {
     company: string;
     role: string;
     period: string;
@@ -16,18 +16,18 @@ interface Experience {
     technologies: string[];
 }
 
-interface Education {
+export interface Education {
     institution: string;
     degree: string;
     period: string;
 }
 
-interface Skill {
+export interface Skill {
     name: string;
     level: number;
 }
 
-interface Project {
+export interface Project {
     title: string;
     description: string;
     link: string;

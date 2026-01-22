@@ -6,7 +6,7 @@ export GROUP_ID
 
 DOCKER_COMPOSE = USER_ID=$(USER_ID) GROUP_ID=$(GROUP_ID) docker compose
 
-.PHONY: build up down logs shell init install
+ .PHONY: build up down logs shell init install lint
 
 build:
 	$(DOCKER_COMPOSE) build
@@ -28,6 +28,9 @@ init:
 
 local-build:
 	$(DOCKER_COMPOSE) exec node pnpm build
+
+lint:
+	$(DOCKER_COMPOSE) exec node pnpm lint
 
 install:
 	$(DOCKER_COMPOSE) run --rm node pnpm install

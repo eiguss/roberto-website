@@ -32,7 +32,7 @@ install:
 deploy:
 	gcloud run deploy roberto-website \
 		--source . \
-		--dockerfile Dockerfile.prod \
+		--dockerfile Dockerfile \
 		--region us-central1 \
 		--allow-unauthenticated \
 		--port 8080

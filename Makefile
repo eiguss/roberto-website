@@ -26,6 +26,9 @@ shell:
 init:
 	$(DOCKER_COMPOSE) run --rm node pnpm create next-app . --ts --tailwind --eslint --app --src-dir --import-alias "@/*" --use-pnpm --no-git --no-install
 
+local-build:
+	$(DOCKER_COMPOSE) exec node pnpm build
+
 install:
 	$(DOCKER_COMPOSE) run --rm node pnpm install
 

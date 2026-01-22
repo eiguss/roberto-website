@@ -1,3 +1,32 @@
+interface PersonalInfo {
+    name: string;
+    title: string;
+    email: string;
+    github: string;
+    linkedin: string;
+    profileImage: string;
+    bio: string;
+}
+
+interface Experience {
+    company: string;
+    role: string;
+    period: string;
+    description: string;
+    technologies: string[];
+}
+
+interface Education {
+    institution: string;
+    degree: string;
+    period: string;
+}
+
+interface Skill {
+    name: string;
+    level: number;
+}
+
 interface Project {
     title: string;
     description: string;
@@ -6,10 +35,10 @@ interface Project {
 }
 
 export const cvData: {
-    personalInfo: any;
-    experience: any[];
-    education: any[];
-    skills: any[];
+    personalInfo: PersonalInfo;
+    experience: Experience[];
+    education: Education[];
+    skills: Skill[];
     projects: Project[];
 } = {
     personalInfo: {

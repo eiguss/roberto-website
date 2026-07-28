@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
+  --background: #050505;
   --foreground: #ffffff;
   --glass: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.1);
@@ -16,10 +16,15 @@
   --font-display: var(--font-outfit);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter);
+  overflow-x: hidden;
 }
 
 h1,
@@ -37,7 +42,7 @@ h4 {
 }
 
 .glass-hover {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-hover:hover {
@@ -51,7 +56,7 @@ h4 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: #050505;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -60,48 +65,41 @@ h4 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333;
+  background: #3b82f6;
+}
+
+/* PRINT STYLES - Suppresses browser header/footer (date, time, URL) */
+@page {
+  size: A4 portrait;
+  margin: 0;
 }
 
 @media print {
+  html, body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .no-print {
     display: none !important;
   }
 
-  body {
-    background: white !important;
-    color: black !important;
+  #web-layout {
+    display: none !important;
   }
 
-  .glass {
-    background: transparent !important;
-    border: 1px solid #eee !important;
-    backdrop-filter: none !important;
-    box-shadow: none !important;
+  #print-cv-container {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 12mm 15mm !important;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    color: black !important;
-  }
-
-  .bg-black {
-    background: white !important;
-  }
-
-  .text-white\/50,
-  .text-white\/40,
-  .text-white\/20 {
-    color: #666 !important;
-  }
-
-  .text-blue-400 {
-    color: #0056b3 !important;
-  }
-
-  .bg-blue-500 {
-    background: #0056b3 !important;
+  .break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 }

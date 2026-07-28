@@ -8,13 +8,16 @@ interface SectionTitleProps {
 
 export function SectionTitle({ children }: SectionTitleProps) {
     return (
-        <motion.h2
+        <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold mb-8 text-white/90"
+            className="flex items-center gap-3 mb-8"
         >
-            {children}
-        </motion.h2>
+            <span className="w-1.5 h-7 rounded-full bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-500 inline-block" />
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white/90 tracking-tight">
+                {children}
+            </h2>
+        </motion.div>
     );
 }

@@ -48,7 +48,7 @@ export const cvData: {
         github: "https://github.com/eiguss",
         linkedin: "https://www.linkedin.com/in/robmartinezq",
         profileImage: "/profile.jpg",
-        bio: "Experienced technology leader with over 11 years at Inbenta, specializing in AI software development, team leadership, and AWS. Proven track record in driving product innovation and delivering complex full-stack solutions.",
+        bio: "Visionary technology leader with 12 years of experience at Inbenta, specializing in AI-driven software development, cross-functional team leadership, and AWS cloud architecture. Adept at steering product innovation from concept to launch and delivering scalable, complex full-stack solutions that drive business value.",
     },
     experience: [
         {

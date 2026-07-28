@@ -27,14 +27,17 @@ export function TerminalWidget() {
     },
   ]);
   const [inputValue, setInputValue] = useState("");
-  const terminalEndRef = useRef<HTMLDivElement>(null);
-
-  const scrollToBottom = () => {
-    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  const terminalBodyRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
-    scrollToBottom();
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
+    }
   }, [history]);
 
   const executeCommand = (rawCmd: string) => {
@@ -183,7 +186,10 @@ export function TerminalWidget() {
         </div>
 
         {/* Terminal Body */}
-        <div className="p-5 sm:p-6 font-mono text-xs sm:text-sm space-y-4 max-h-[380px] overflow-y-auto custom-scrollbar">
+        <div
+          ref={terminalBodyRef}
+          className="p-5 sm:p-6 font-mono text-xs sm:text-sm space-y-4 max-h-[380px] overflow-y-auto custom-scrollbar"
+        >
           {history.map((entry) => (
             <div key={entry.id} className="space-y-2">
               <div className="flex items-center gap-2 text-white/50">
@@ -211,7 +217,6 @@ export function TerminalWidget() {
               <CornerDownLeft size={14} />
             </button>
           </form>
-          <div ref={terminalEndRef} />
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 # Stage 1: Build
 FROM node:22-bullseye AS builder
-RUN npm install -g pnpm
+RUN npm install -g pnpm@9
 WORKDIR /app
 COPY app/package.json app/pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
